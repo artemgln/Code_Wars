@@ -19,6 +19,12 @@ namespace CodeWars
             Console.WriteLine($"Age: {i}  stat.Now: {kata.stat.Now}  syst.Now: {kata.syst.Now}");
             Console.ReadKey();
             #endregion
+
+            #region ReplaceWithAlphabetPosition
+            string ab=ReplaceWithAlphabetPosition3.AlphabetPosition("Abc Xyz");
+            Console.WriteLine($"ReplaceWithAlphabetPosition2 result: {ab}");
+            Console.ReadKey();
+            #endregion
         }
     }
 }
