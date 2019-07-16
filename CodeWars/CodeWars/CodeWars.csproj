@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FakeBinary.cs" />
     <Compile Include="GetAgeFromDOB_CW.cs" />
     <Compile Include="GetAgeFromDOB.cs" />
     <Compile Include="Program.cs" />
