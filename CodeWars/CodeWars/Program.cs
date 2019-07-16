@@ -32,6 +32,12 @@ namespace CodeWars
             Console.ReadKey();
             */
             #endregion
+
+            #region ReplaceWithAlphabetPosition
+            string ab=ReplaceWithAlphabetPosition3.AlphabetPosition("Abc Xyz");
+            Console.WriteLine($"ReplaceWithAlphabetPosition2 result: {ab}");
+            Console.ReadKey();
+            #endregion
         }
     }
 }
