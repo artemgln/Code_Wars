@@ -28,5 +28,10 @@ namespace CodeWars
             x = Regex.Replace(x, "[56789]", "1");
             return x;
         }
+
+        public static string FakeBinClever(string x)
+        {
+            return string.Concat(x.Select(a => a < '5' ? "0" : "1"));
+        }
     }
 }
