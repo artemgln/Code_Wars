@@ -9,7 +9,6 @@ namespace CodeWars
 {
     public class SortCsvColumns
     {
-
         public static string SortCsvCol(string csvFileContent)
         {
             StringReader strReader = new StringReader(csvFileContent);
@@ -46,7 +45,7 @@ namespace CodeWars
             }
 
             SortedDictionary<string, List<string>> sorted = new SortedDictionary<string, List<string>>(dict);
-            string keys = string.Join(";", sorted.Select(x => x.Key))+ "\r\n";
+            string keys = string.Join(";", sorted.Select(x => x.Key))+ "\n";
             string vals=string.Empty;
 
             for (int i = 0; i < rows-1; i++)
@@ -56,35 +55,25 @@ namespace CodeWars
                     List<string> te = sorted[k];
                     vals += te[i]+ ";";
                 }
-                vals += "\r\n";
+                vals = vals.Remove(vals.Length - 1);
+                vals += "\n";
             }
 
+            vals = vals.Remove(vals.Length - 2);
             return (keys+vals);
-        }                   
+        }
+
+        public static string SortCsvCol2(string csvFileContent)
+        {
+            var lines = csvFileContent.Split('\n').Select(line => line.Split(';')).ToArray();
+            var indices = lines[0].Select((x, i) => new { Value = x, Index = i }).OrderBy(x => x.Value).Select(x => x.Index).ToArray();
+            return string.Join("\n", lines.Select(line => string.Join(";", indices.Select(i => line[i]))));
+        }
+
+        public static string SortCsvCol3(string csvFileContent)
+        {
+            var csv = csvFileContent.Split('\n').Select(x => x.Split(';')).ToArray();
+            return Enumerable.Range(0, csv[0].Length).Select(i => csv.Select(t => t[i])).OrderBy(x => x.ElementAt(0)).Aggregate((a, b) => a.Zip(b, (c, d) => $"{c};{d}").ToList()).Aggregate((a, b) => $"{a}\n{b}");
+        }
     }
 }
-
-/*
-if (i == 0)
-                {
-                    foreach (string s in temp)
-                    {
-                        csvz.Add(s, templ);
-                    }
-                }
-                else
-                {
-                    int k = 0;
-                    foreach (string z in tempList[0].Split(';'))
-                    {
-                        List<string> tt = new List<string>();
-                        tt = csvz[z];
-                        tt.Add(temp[k]);
-                        csvz[z]=tt;
-                        k++;
-                    }
-                    
-                }
-                i++;
-
-    */

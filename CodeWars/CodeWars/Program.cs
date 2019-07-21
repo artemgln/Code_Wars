@@ -12,13 +12,11 @@ namespace CodeWars
         static void Main()
         {
             #region SortCSV
-            string v = @"a;e;c;b;d
-            3907; 145; 191; 18; 12
-            48; 2; 12; 13; 11";
+            string v = "myjinxin2015;raulbc777;smile67;Dentzil;SteffenVogel_79\n17945;10091;10088;3907;10132\n2;12;13;48;11";
 
-            Console.WriteLine($" Input: {v}");
+            Console.WriteLine(v);
             Console.ReadKey();
-            Console.WriteLine($" Converted number: {SortCsvColumns.SortCsvCol(v)}");
+            Console.WriteLine(SortCsvColumns.SortCsvCol(v));
             Console.ReadKey();
             #endregion
 
